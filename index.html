@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        input, button { display: block; margin: 10px auto; padding: 10px; width: 80%; max-width: 300px; }
+    </style>
+</head>
+<body>
+    <h2>Заполните форму</h2>
+    <form id="form">
+        <input type="text" id="name" placeholder="Ваше имя" required>
+        <input type="tel" id="whatsapp" placeholder="Ваш номер WhatsApp" required>
+        <button type="submit">Отправить</button>
+    </form>
+
+    <script>
+        document.getElementById('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            let name = document.getElementById('name').value;
+            let whatsapp = document.getElementById('whatsapp').value;
+            
+            // Сохраняем данные (можно заменить на отправку в Google Sheets)
+            console.log("Имя:", name, "WhatsApp:", whatsapp);
+            
+            // Генерация WhatsApp-сообщения
+            let message = encodeURIComponent(`Привет, ${name}! Спасибо за регистрацию 🎉`);
+            let whatsappUrl = `https://wa.me/${whatsapp}?text=${message}`;
+            
+            // Перенаправление в WhatsApp
+            window.location.href = whatsappUrl;
+        });
+    </script>
+</body>
+</html>
