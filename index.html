@@ -27,11 +27,8 @@
             // Сохраняем данные (можно заменить на отправку в Google Sheets)
             console.log("Имя:", name, "WhatsApp:", whatsapp);
             
-            // Генерация WhatsApp-сообщения
-            let message = encodeURIComponent(`Привет, ${name}! Спасибо за регистрацию 🎉`);
-            let whatsappUrl = `https://wa.me/${whatsapp}?text=${message}`;
-            
             // Перенаправление в WhatsApp
+            let whatsappUrl = "https://wa.me/message/4V7WNK2NVNM5G1";
             window.location.href = whatsappUrl;
         });
     </script>
