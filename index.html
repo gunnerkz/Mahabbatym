@@ -23,7 +23,16 @@
             
             let name = document.getElementById('name').value;
             let whatsapp = document.getElementById('whatsapp').value;
-            
+            // Replace with your Google Apps Script Web App URL
+            let googleSheetURL = "https://script.google.com/macros/s/AKfycbzNLT_fVPZZjh_U-_Gf0gPjOXiEOvkoUL4bp-DK-DYkcjms7t1L4fK921w2RsWk5t108w/exec";
+
+            fetch(googleSheetURL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+                
             // Сохраняем данные (можно заменить на отправку в Google Sheets)
             console.log("Имя:", name, "WhatsApp:", whatsapp);
             
